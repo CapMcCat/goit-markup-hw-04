@@ -1,14 +1,16 @@
-/*правки с прошлого дз
-+1 убрала кнопке заказать услугу бордер
-
-+2 в хедере в контактах на добавила марджин на ли, а не на ссылку
-
-+3 исправила горизонтальные падинги для our-team-list-item > .list-item-wrapper на 32px
-
-+4 исправила проблему отступов у элементов футера. проблема была не в марджинах (они как по макету),
-а в стилях ссылок. высота строки была задана неверно.
-
-+5 убрала тег адрес в хедере*/
+/* +Создан репозиторий goit-markup-hw-04.
++Все растровые и векторные изображения оптимизированы.
++Создан один SVG-спрайт для всех иконок. Для генерации спрайта используй Icomoon.
++Размеры иконок соответствуют макету.
++Большое изображение с эффектом затемнения (под шапкой) оформлено как фон. 
++Для затемнения используется многослойный фон с градиентом.
++В блоке Контактов в шапке, добавлены иконки конверта и телефона.
++В секции Преимуществ добавлены иконки.
++В секции Команды добавлены иконки соцсетей.
++В секции Клиентов добавлены иконки компаний.
++В футере добавлены иконки соцсетей.
++На карточках команды есть постоянный эффект тени.
++На карточках портфолио есть эффект тени при ховере по карточке. */
 
 :root {
   --text-font: "Roboto", sans-serif;
@@ -157,6 +159,7 @@ img {
 .email-link,
 .phone-link {
   display: inline-block;
+  align-items: center;
   font-style: normal;
   font-weight: 500;
   line-height: 1.143px;
@@ -167,14 +170,51 @@ img {
 
 .page-header .email-link,
 .page-header .phone-link {
+  display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
+}
+
+.contacts-icon {
+  margin-right: 10px;
 }
 
 .current-link {
   color: var(--accent-color);
 }
 
+.current-link .contacts-icon {
+  fill: var(--accent-color);
+}
+
+.contacts-icon {
+  fill: var(--secondary-color);
+}
+
+.email-link .contacts-icon {
+  width: 16px;
+  height: 12px;
+}
+
+.phone-link .contacts-icon {
+  width: 10px;
+  height: 16px;
+}
+
+contacts-icon:hover,
+contacts-icon:focus {
+  fill: var(--accent-color);
+}
+
+.email-link:hover .contacts-icon,
+.email-link:focus .contacts-icon {
+  fill: var(--accent-color);
+}
+
+.phone-link:hover .contacts-icon,
+.phone-link:focus .contacts-icon {
+  fill: var(--accent-color);
+}
 /* ============HEADER END============ */
 
 /* ============STUDIO PAGE============ */
@@ -182,10 +222,16 @@ img {
 /* ============HERO SECTION============ */
 
 .hero-section {
+  margin: 0 auto;
   padding-top: 200px;
   padding-bottom: 200px;
+  max-width: 1600;
   text-align: center;
   background: var(--secondary-dark-bgc);
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url("../images/hero/hero-bcg-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-title {
@@ -224,6 +270,7 @@ img {
   background-color: var(--secondary-light-bgc);
   cursor: pointer;
 }
+
 /* ============HERO SECTION END============ */
 
 /* ============FEATURES SECTION ============ */
@@ -256,6 +303,23 @@ img {
   letter-spacing: 0.03em;
   color: var(--secondary-color);
 }
+
+.features-icon {
+  width: 70px;
+  height: 70px;
+  fill: var(--secondary-color);
+}
+.thumb {
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 120px;
+  background: var(--secondary-light-bgc);
+  border-radius: 4px;
+}
+
 /* ============FEATURES SECTION END============ */
 
 /* ============WHAT WE DO SECTION ============ */
@@ -325,6 +389,7 @@ img {
 }
 
 .our-team-item-position {
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 0.842;
   letter-spacing: 0.03em;
@@ -338,7 +403,118 @@ img {
   padding-left: 32px;
 }
 
+.social-list {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--secondary-color);
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--main-white-color);
+  border-radius: 50%;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
+  fill: var(--main-white-color);
+}
+
 /* ============OUR TEAM SECTION END============ */
+
+/* ============CLIENTS============ */
+
+.clients-section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.cilents-section-title {
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.167;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.clients-list {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+.clients-list-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.client-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 90px;
+  border: 1px solid #afb1b8;
+  border-radius: 4px;
+}
+
+.client-link:hover {
+  border: 1px solid var(--accent-color);
+}
+
+.client-link:hover .client-logo {
+  fill: var(--accent-color);
+}
+
+.client-logo {
+  fill: var(--secondary-color);
+}
+
+.client-logo.logo-1 {
+  width: 44px;
+  height: 49px;
+}
+
+.client-logo.logo-2 {
+  width: 40px;
+  height: 52px;
+}
+
+.client-logo.logo-3 {
+  width: 41px;
+  height: 43px;
+}
+
+.client-logo.logo-4 {
+  width: 80px;
+  height: 42px;
+}
+
+.client-logo.logo-5 {
+  width: 59px;
+  height: 47px;
+}
+
+.client-logo.logo-6 {
+  width: 89px;
+  height: 46px;
+}
+
+/* ============CLIENTS END============ */
 
 /* ============STUDIO PAGE END============ */
 
@@ -377,7 +553,11 @@ img {
 }
 
 .map-link:hover,
-.map-link:focus {
+.map-link:focus,
+.footer .email-link:hover,
+.footer .email-link:focus,
+.footer .phone-link:hover,
+.footer .phone-link:focus {
   color: var(--accent-color);
 }
 
@@ -389,6 +569,47 @@ img {
   letter-spacing: 0.03em;
   color: var(--footer-contacts-color);
   text-decoration: none;
+}
+
+.footer > .container {
+  display: flex;
+  align-items: baseline;
+}
+
+.footer-left {
+  margin-right: 70px;
+}
+
+.footer-right-text {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.142;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--main-white-color);
+}
+
+.footer .social-list {
+  display: flex;
+}
+
+.footer .socail-list-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.footer .social-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.footer .social-icon {
+  fill: var(--main-white-color);
+}
+
+.footer .social-link:hover,
+.footer .social-link:focus {
+  background-color: var(--accent-color);
 }
 
 /* ============FOOTER END============ */
@@ -457,6 +678,11 @@ img {
   display: inline-block;
   text-decoration: none;
   color: var(--primary-color);
+}
+
+.portfolio-item-link:hover,
+.portfolio-item-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .portfolio-item-titel {
